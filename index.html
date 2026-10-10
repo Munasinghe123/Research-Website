@@ -1,16 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Project</title>
+    <title>SysDesign | Multi-Agent LLM Framework</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="navbar">
-        <a href="#home" class="logo">Research Project</a>
+        <a href="#home" class="logo">
+            <img src="images/logo.png" alt="SysDesign Logo" class="logo-img">
+        </a>
 
         <nav aria-label="Main navigation">
             <a href="#home">Home</a>
@@ -27,50 +31,58 @@
     </header>
 
     <main>
-        <section id="home">
-            <h1>Home</h1>
-        </section>
-
-        <section id="about">
-            <h2>About</h2>
-        </section>
-
-        <section id="domain">
-            <h2>Domain</h2>
-        </section>
-
-        <section id="documents">
-            <h2>Documents</h2>
-        </section>
-
-        <section id="presentations">
-            <h2>Presentations</h2>
-        </section>
-
-        <section id="milestones">
-            <h2>Milestones</h2>
-        </section>
-
-        <section id="technologies">
-            <h2>Technologies</h2>
-        </section>
-
-        <section id="achievements">
-            <h2>Achievements</h2>
-        </section>
-
-        <section id="team">
-            <h2>Team</h2>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-        </section>
+        <div data-include="sections/home/home.html"></div>
+        <div data-include="sections/about/about.html"></div>
+        <div data-include="sections/domain/domain.html"></div>
+        <div data-include="sections/documents/documents.html"></div>
+        <div data-include="sections/presentations/presentations.html"></div>
+        <div data-include="sections/milestones/milestones.html"></div>
+        <div data-include="sections/technologies/technologies.html"></div>
+        <div data-include="sections/achievements/achievements.html"></div>
+        <div data-include="sections/team/team.html"></div>
+        <div data-include="sections/contact/contact.html"></div>
     </main>
 
-    <footer>
-        <p>Research Project Website</p>
-    </footer>
+    <div data-include="sections/footer/footer.html"></div>
+
+    <script>
+        async function loadModularSections() {
+            const placeholders = document.querySelectorAll('[data-include]');
+            await Promise.all(Array.from(placeholders).map(async (el) => {
+                const filePath = el.getAttribute('data-include');
+                try {
+                    const response = await fetch(filePath);
+                    if (response.ok) {
+                        el.outerHTML = await response.text();
+                    } else {
+                        console.error(`Failed to load ${filePath}: status ${response.status}`);
+                    }
+                } catch (error) {
+                    console.error(`Error loading section from ${filePath}:`, error);
+                }
+            }));
+
+            // Handle anchor link scrolling once content is injected
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        loadModularSections();
+
+        // Navbar dynamic scroll background
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 
 </body>
 </html>
