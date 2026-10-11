@@ -47,6 +47,7 @@
     <div data-include="sections/footer/footer.html"></div>
 
     <script src="sections/marquee/marquee.js"></script>
+    <script src="sections/milestones/milestones.js"></script>
     <script>
         async function loadModularSections() {
             const placeholders = document.querySelectorAll('[data-include]');
@@ -67,6 +68,11 @@
             // Initialize continuous marquee once modular sections are injected
             if (window.initMarquee) {
                 window.initMarquee();
+            }
+
+            // Initialize interactive milestones timeline once injected
+            if (window.initMilestonesTimeline) {
+                window.initMilestonesTimeline();
             }
 
             // Handle anchor link scrolling once content is injected
