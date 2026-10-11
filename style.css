@@ -3,6 +3,7 @@
    ========================================================================== */
 @import url('sections/navbar/navbar.css');
 @import url('sections/home/home.css');
+@import url('sections/marquee/marquee.css');
 @import url('sections/about/about.css');
 @import url('sections/domain/domain.css');
 @import url('sections/documents/documents.css');
@@ -18,13 +19,14 @@
    Design Tokens & Global Base Styles
    ========================================================================== */
 :root {
-    --background: #181716;
-    --surface: #242322;
+    --background: #000000;
+    --surface: #000000;
     --primary: #06B6D4;
     --accent: var(--primary);
     --text: #E2E2E1;
     --text-muted: #9B9B9A;
     --font-heading: 'Audiowide', cursive, sans-serif;
+    --page-px: 5%;
 }
 
 * {

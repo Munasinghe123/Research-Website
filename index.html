@@ -26,12 +26,13 @@
             <a href="#technologies">Technologies</a>
             <a href="#achievements">Achievements</a>
             <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-contact-btn">Contact Us</a>
         </nav>
     </header>
 
     <main>
         <div data-include="sections/home/home.html"></div>
+        <div data-include="sections/marquee/marquee.html"></div>
         <div data-include="sections/about/about.html"></div>
         <div data-include="sections/domain/domain.html"></div>
         <div data-include="sections/documents/documents.html"></div>
@@ -45,6 +46,7 @@
 
     <div data-include="sections/footer/footer.html"></div>
 
+    <script src="sections/marquee/marquee.js"></script>
     <script>
         async function loadModularSections() {
             const placeholders = document.querySelectorAll('[data-include]');
@@ -61,6 +63,11 @@
                     console.error(`Error loading section from ${filePath}:`, error);
                 }
             }));
+
+            // Initialize continuous marquee once modular sections are injected
+            if (window.initMarquee) {
+                window.initMarquee();
+            }
 
             // Handle anchor link scrolling once content is injected
             if (window.location.hash) {
