@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+    <defs>
+        <linearGradient id="time-bg" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#070c12" />
+            <stop offset="100%" stop-color="#030609" />
+        </linearGradient>
+        <linearGradient id="time-dial" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0e1724" />
+            <stop offset="100%" stop-color="#060c13" />
+        </linearGradient>
+        <filter id="time-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+
+    <!-- Canvas Background -->
+    <rect width="400" height="240" rx="14" fill="url(#time-bg)" stroke="rgba(6, 182, 212, 0.15)" stroke-width="1"/>
+
+    <!-- Subtle Tech Grid Lines -->
+    <path d="M 40 0 L 40 240 M 120 0 L 120 240 M 200 0 L 200 240 M 280 0 L 280 240 M 360 0 L 360 240" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+    <path d="M 0 60 L 400 60 M 0 120 L 400 120 M 0 180 L 400 180" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+    <!-- Ambient Center Cyan Glow -->
+    <circle cx="200" cy="115" r="75" fill="#06b6d4" opacity="0.12" filter="url(#time-glow)" />
+
+    <!-- Central Tech Stopwatch / Clock Dial -->
+    <g transform="translate(130, 20)">
+        <!-- Outer Rotating Track Ring -->
+        <circle cx="70" cy="85" r="65" fill="url(#time-dial)" stroke="rgba(6, 182, 212, 0.25)" stroke-width="2"/>
+        
+        <!-- Progress Arc (Depicting slow/repetitive progress) -->
+        <path d="M 70 24 A 61 61 0 1 1 20 120" stroke="#06b6d4" stroke-width="4" stroke-linecap="round" fill="none" filter="url(#time-glow)"/>
+        
+        <!-- Dashed ticks on dial -->
+        <circle cx="70" cy="85" r="50" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" stroke-dasharray="3 7" fill="none"/>
+
+        <!-- Clock Hands -->
+        <line x1="70" y1="85" x2="70" y2="48" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="85" x2="102" y2="85" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="70" cy="85" r="4.5" fill="#06b6d4"/>
+
+        <!-- Top Stopwatch Push Button -->
+        <rect x="63" y="10" width="14" height="10" rx="3" fill="#0c1722" stroke="rgba(6, 182, 212, 0.4)" stroke-width="1"/>
+    </g>
+
+    <!-- Repetitive Manual Loop Icons (Left) -->
+    <g transform="translate(30, 75)">
+        <rect width="75" height="75" rx="10" fill="#0b1219" stroke="rgba(6, 182, 212, 0.25)" stroke-width="1"/>
+        <!-- Refresh / Loop Arrow -->
+        <path d="M 48 30 A 15 15 0 1 0 52 46" fill="none" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round"/>
+        <polyline points="48 24 50 31 43 33" fill="none" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="14" y="64" fill="rgba(255,255,255,0.6)" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600">RE-ITERATE</text>
+    </g>
+
+    <!-- Delayed Effort Meter (Right) -->
+    <g transform="translate(295, 75)">
+        <rect width="75" height="75" rx="10" fill="#0b1219" stroke="rgba(6, 182, 212, 0.25)" stroke-width="1"/>
+        <rect x="12" y="16" width="50" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+        <rect x="12" y="16" width="38" height="6" rx="3" fill="#06b6d4"/>
+        
+        <rect x="12" y="30" width="50" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+        <rect x="12" y="30" width="24" height="6" rx="3" fill="#06b6d4"/>
+        
+        <rect x="12" y="44" width="50" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+        <rect x="12" y="44" width="45" height="6" rx="3" fill="#f59e0b"/>
+        <text x="12" y="64" fill="#f59e0b" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600">HIGH EFFORT</text>
+    </g>
+</svg>
