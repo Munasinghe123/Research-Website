@@ -52,159 +52,103 @@
     align-items: stretch;
 }
 
-/* Research Benefit Card */
+/* ==========================================================================
+   Research Benefit Card
+   Clean, premium dark card with professional physical elevation & border hover
+   ========================================================================== */
 .research-card {
     position: relative;
     background-color: var(--surface, #242322);
-    border: 1px solid var(--border, #4B4B4B);
-    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
     padding: 32px 26px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
     height: 100%;
-    overflow: hidden;
-    isolation: isolate;
     cursor: default;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
-        border-color 900ms cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 320ms ease;
+    will-change: transform, box-shadow;
 }
 
 /* ==========================================================================
-   Layer 1: Refined Ambient Orange Radial Glow (::before)
-   Inspired by reference card: soft, localized light source with natural falloff
-   Default: Localized ambient lighting near TOP-RIGHT (card stays mostly dark)
-   Hover: Smooth diagonal movement to settle near BOTTOM-LEFT
-   ========================================================================== */
-.research-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle at center,
-            rgba(241, 141, 105, 0.38) 0%,
-            rgba(238, 89, 50, 0.28) 18%,
-            rgba(227, 106, 77, 0.16) 36%,
-            rgba(238, 89, 50, 0.07) 54%,
-            rgba(238, 89, 50, 0.02) 72%,
-            rgba(238, 89, 50, 0) 88%);
-    filter: blur(18px);
-    pointer-events: none;
-    z-index: 0;
-    /* Default position: soft localized light resting near TOP-RIGHT (illuminates ~1/4 of card) */
-    transform: translate3d(32%, -18%, 0);
-    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform;
-}
-
-/* ==========================================================================
-   Layer 2: Glossy Diagonal Light Shine (::after)
-   Default: Soft angled sheen near TOP-RIGHT at low opacity
-   Hover: Diagonal movement toward BOTTOM-LEFT, trailing glow & fading to 0
-   ========================================================================== */
-.research-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 140%;
-    height: 140%;
-    background: linear-gradient(135deg,
-            transparent 28%,
-            rgba(241, 141, 105, 0.05) 42%,
-            rgba(255, 240, 230, 0.16) 50%,
-            rgba(241, 141, 105, 0.05) 58%,
-            transparent 72%);
-    filter: blur(12px);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.18;
-    /* Default position: resting near TOP-RIGHT */
-    transform: translate3d(45%, -45%, 0);
-    transition: transform 940ms cubic-bezier(0.22, 1, 0.36, 1) 30ms,
-        opacity 900ms cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform;
-}
-
-/* ==========================================================================
-   Card Hover States: Diagonal Movement, Elevation, Border Illumination
+   Professional Card Hover Animation
+   Subtle elevation, surface illumination, and refined border accent
    ========================================================================== */
 .research-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(238, 89, 50, 0.45);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(238, 89, 50, 0.08);
+    transform: translateY(-6px);
+    background-color: #292826;
+    border-color: rgba(238, 89, 50, 0.42);
+    box-shadow: 0 20px 38px -10px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(238, 89, 50, 0.18);
 }
 
-/* Glow moves diagonally across the card and settles at BOTTOM-LEFT (~1/4 of card) */
-.research-card:hover::before {
-    transform: translate3d(-30%, 48%, 0);
-}
-
-/* Coordinated shine travels in same direction and gracefully fades */
-.research-card:hover::after {
-    transform: translate3d(-25%, 25%, 0);
-    opacity: 0;
-}
-
-/* Stationary card content: always crisp and clearly above decorative layers */
-.research-card>* {
+/* Stationary card content: always crisp */
+.research-card > * {
     position: relative;
     z-index: 1;
 }
 
 /* ==========================================================================
-   Card Content: Icons & Typography
+   Icon Badge — Rounded Squircle with Red Ambient Glow
+   Crafted to match the reference design: vibrant gradient & soft colored halo
    ========================================================================== */
 .card-icon-wrapper {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background-color: rgba(238, 89, 50, 0.1);
-    border: 1px solid rgba(238, 89, 50, 0.22);
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #FF4B2B 0%, #EE3A25 60%, #D82613 100%);
+    box-shadow: 0 8px 22px -2px rgba(238, 58, 37, 0.48),
+        0 2px 6px rgba(0, 0, 0, 0.25);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent, #EE5932);
-    margin-bottom: 20px;
+    color: #FFFFFF;
+    margin-bottom: 22px;
     flex-shrink: 0;
-    transition: background-color 900ms cubic-bezier(0.22, 1, 0.36, 1),
-        border-color 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-icon {
-    width: 22px;
-    height: 22px;
-    stroke: var(--accent, #EE5932);
-    transition: stroke 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    width: 26px;
+    height: 26px;
+    stroke: #FFFFFF;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Icon micro-interaction on card hover */
 .research-card:hover .card-icon-wrapper {
-    background-color: rgba(238, 89, 50, 0.16);
-    border-color: rgba(238, 89, 50, 0.38);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 28px -2px rgba(238, 58, 37, 0.68),
+        0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .research-card:hover .card-icon {
-    stroke: var(--accent-highlight, #F18D69);
+    transform: scale(1.04);
 }
 
+/* ==========================================================================
+   Card Content: Typography
+   High contrast, modern bold title with readable muted description
+   ========================================================================== */
 .card-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--text, #E2E2E1);
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #FFFFFF;
     margin: 0 0 12px 0;
     line-height: 1.35;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    transition: color 300ms ease;
 }
 
 .card-description {
-    font-size: 0.93rem;
+    font-size: 0.94rem;
     color: var(--text-muted, #9B9B9A);
     line-height: 1.62;
     margin: 0;
@@ -250,30 +194,29 @@
 /* ==========================================================================
    Touch Devices & Accessibility
    ========================================================================== */
-/* Touch devices: preserve default top-right ambient glow without hover sticking */
+/* Touch devices: smooth interaction without sticky hover artifacts */
 @media (hover: none) {
     .research-card:hover {
         transform: none;
-        border-color: var(--border, #4B4B4B);
+        background-color: var(--surface, #242322);
+        border-color: rgba(255, 255, 255, 0.08);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
 
-    .research-card:hover::before {
-        transform: translate3d(32%, -18%, 0);
+    .research-card:hover .card-icon-wrapper {
+        transform: none;
+        box-shadow: 0 8px 22px -2px rgba(238, 58, 37, 0.48),
+            0 2px 6px rgba(0, 0, 0, 0.25);
     }
 
-    .research-card:hover::after {
-        transform: translate3d(45%, -45%, 0);
-        opacity: 0.18;
+    .research-card:hover .card-icon {
+        transform: none;
     }
 }
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-
     .research-card,
-    .research-card::before,
-    .research-card::after,
     .card-icon-wrapper,
     .card-icon {
         transition: none !important;
