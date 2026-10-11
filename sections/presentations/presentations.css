@@ -35,7 +35,7 @@
 }
 
 .presentations-container {
-    max-width: 1240px;
+    max-width: 1040px;
     margin: 0 auto;
     width: 100%;
     position: relative;
@@ -45,38 +45,16 @@
 /* Section Header Typography */
 .presentations-section .section-header {
     text-align: center;
-    max-width: 740px;
-    margin: 0 auto 56px auto;
-}
-
-.presentations-section .section-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    border-radius: 999px;
-    background: rgba(6, 182, 212, 0.08);
-    border: 1px solid rgba(6, 182, 212, 0.35);
-    box-shadow: 0 0 16px rgba(6, 182, 212, 0.12);
-    backdrop-filter: blur(8px);
-    margin-bottom: 18px;
-}
-
-.presentations-section .section-pill .pill-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 12.5px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    color: var(--primary, #06B6D4);
-    text-transform: uppercase;
+    max-width: 700px;
+    margin: 0 auto 46px auto;
 }
 
 .presentations-section .section-title {
     font-family: var(--font-heading, 'Audiowide', cursive, sans-serif);
-    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-size: clamp(1.7rem, 2.3vw, 2.2rem);
     font-weight: 400;
     color: #ffffff;
-    margin: 0 0 16px 0;
+    margin: 0 0 14px 0;
     letter-spacing: 1.2px;
     line-height: 1.3;
     text-transform: uppercase;
@@ -88,17 +66,17 @@
 
 .presentations-section .section-description {
     font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-muted, #9B9B9A);
     margin: 0;
-    line-height: 1.65;
+    line-height: 1.6;
 }
 
 /* Centered Cyan Accent Divider Line */
 .presentations-divider {
-    width: 56px;
+    width: 50px;
     height: 3px;
-    margin: 20px auto 0 auto;
+    margin: 18px auto 0 auto;
     background: var(--primary, #06B6D4);
     border-radius: 999px;
     box-shadow: 0 0 14px rgba(6, 182, 212, 0.6);
@@ -110,20 +88,20 @@
 .presentations-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+    gap: 22px;
     align-items: stretch;
 }
 
 /* ==========================================================================
    Presentation Card
-   Sleek dark card with 16:9 holographic banner, typography, & action buttons
+   Sleek compact dark card with 16:9 holographic banner & action buttons
    ========================================================================== */
 .presentation-card {
     position: relative;
     background-color: #0c0d10;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 20px;
+    border-radius: 16px;
+    padding: 16px 16px 18px 16px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -138,12 +116,12 @@
 }
 
 .presentation-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
     background-color: #121418;
     border-color: rgba(6, 182, 212, 0.45);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8),
+    box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.8),
         0 0 0 1px rgba(6, 182, 212, 0.22),
-        0 0 24px rgba(6, 182, 212, 0.14);
+        0 0 22px rgba(6, 182, 212, 0.14);
 }
 
 /* 16:9 Banner Image Wrapper */
@@ -151,11 +129,12 @@
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 14px;
+    max-height: 220px;
+    border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(6, 182, 212, 0.25);
     background: #000000;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
 }
 
 .presentation-banner {
@@ -175,17 +154,17 @@
 /* Banner Corner Pill Badge */
 .banner-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    padding: 4px 12px;
+    top: 10px;
+    right: 10px;
+    padding: 3px 10px;
     border-radius: 999px;
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     color: #ffffff;
-    background: rgba(12, 13, 16, 0.8);
+    background: rgba(12, 13, 16, 0.82);
     border: 1px solid rgba(6, 182, 212, 0.45);
     backdrop-filter: blur(8px);
     box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
@@ -196,15 +175,15 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: 0 6px 6px 6px;
+    padding: 0 4px 4px 4px;
 }
 
 .presentation-title {
     font-family: 'Inter', sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: #ffffff;
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     letter-spacing: -0.015em;
     line-height: 1.35;
     transition: color 0.3s ease;
@@ -216,10 +195,10 @@
 
 .presentation-description {
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-muted, #9B9B9A);
-    line-height: 1.6;
-    margin: 0 0 24px 0;
+    line-height: 1.55;
+    margin: 0 0 18px 0;
     flex-grow: 1;
 }
 
@@ -227,7 +206,7 @@
 .presentation-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     margin-top: auto;
 }
 
@@ -235,11 +214,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 9px 20px;
+    gap: 7px;
+    padding: 8px 16px;
     border-radius: 999px;
     font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     font-weight: 600;
     letter-spacing: 0.2px;
     text-decoration: none;
@@ -249,8 +228,8 @@
 }
 
 .pres-btn .btn-icon {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     stroke: currentColor;
     transition: transform 0.25s ease;
 }
@@ -260,12 +239,12 @@
     background: var(--primary, #06B6D4);
     color: #041217;
     border: 1px solid #22d3ee;
-    box-shadow: 0 0 16px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 0 14px rgba(6, 182, 212, 0.4);
 }
 
 .pres-btn.btn-view:hover {
     background: #22d3ee;
-    box-shadow: 0 0 26px rgba(6, 182, 212, 0.7);
+    box-shadow: 0 0 24px rgba(6, 182, 212, 0.7);
     transform: translateY(-2px);
 }
 
@@ -285,7 +264,7 @@
     background: rgba(6, 182, 212, 0.2);
     border-color: #22d3ee;
     color: #ffffff;
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.45);
+    box-shadow: 0 0 18px rgba(6, 182, 212, 0.45);
     transform: translateY(-2px);
 }
 
@@ -303,32 +282,37 @@
 @media (max-width: 960px) {
     .presentations-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     .presentation-card {
-        padding: 18px;
+        padding: 16px;
     }
 }
 
 @media (max-width: 640px) {
     #presentations,
     .presentations-section {
-        padding: 70px var(--page-px, 5%);
+        padding: 60px var(--page-px, 5%);
     }
 
     .presentations-section .section-header {
-        margin-bottom: 36px;
+        margin-bottom: 30px;
+    }
+
+    .presentation-banner-wrap {
+        max-height: 180px;
     }
 
     .presentation-actions {
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
     }
 
     .pres-btn {
-        flex: 1 1 calc(50% - 5px);
-        padding: 9px 14px;
+        flex: 1 1 calc(50% - 4px);
+        padding: 8px 12px;
+        font-size: 0.8rem;
     }
 }
 
