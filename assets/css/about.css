@@ -223,3 +223,165 @@
         transform: none !important;
     }
 }
+
+/* ==========================================================================
+   Key Components Section Styles (2x2 AI Agent Cards)
+   Scoped strictly under .key-components
+   ========================================================================== */
+.key-components {
+    margin-top: 84px;
+    padding-top: 56px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.key-components .key-components-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 48px auto;
+}
+
+.key-components .key-components-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--text, #E2E2E1);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.key-components .key-components-description {
+    font-size: 1.05rem;
+    color: var(--text-muted, #9B9B9A);
+    margin: 0;
+    line-height: 1.65;
+}
+
+/* 2x2 Grid Layout for Desktop & Tablet */
+.key-components .key-components-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* Technical Component Card */
+.key-components .key-component-card {
+    position: relative;
+    background-color: var(--surface, #242322);
+    border: 1px solid var(--border, #4B4B4B);
+    border-radius: 16px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    height: 100%;
+    cursor: default;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 300ms ease,
+        border-color 300ms ease,
+        box-shadow 300ms ease,
+        background-color 300ms ease;
+}
+
+/* Subtle, Soft Hover Interaction */
+.key-components .key-component-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(238, 89, 50, 0.45);
+    background-color: var(--surface-elevated, #302E2C);
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.45);
+}
+
+/* Orange Component Number Indicator (01, 02, 03, 04) */
+.key-components .component-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent, #EE5932);
+    background: rgba(238, 89, 50, 0.1);
+    border: 1px solid rgba(238, 89, 50, 0.25);
+    border-radius: 6px;
+    padding: 4px 10px;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    line-height: 1;
+    transition: border-color 300ms ease, background-color 300ms ease;
+}
+
+.key-components .key-component-card:hover .component-number {
+    border-color: rgba(238, 89, 50, 0.45);
+    background: rgba(238, 89, 50, 0.16);
+}
+
+/* Component Card Typography */
+.key-components .component-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text, #E2E2E1);
+    margin: 0 0 12px 0;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+.key-components .component-description {
+    font-size: 0.95rem;
+    color: var(--text-muted, #9B9B9A);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Responsive: Tablet adjustments */
+@media (max-width: 1024px) {
+    .key-components .key-components-grid {
+        gap: 20px;
+    }
+
+    .key-components .key-components-title {
+        font-size: 1.9rem;
+    }
+}
+
+/* Responsive: Mobile layout (1 card per row) */
+@media (max-width: 768px) {
+    .key-components {
+        margin-top: 60px;
+        padding-top: 40px;
+    }
+
+    .key-components .key-components-header {
+        margin-bottom: 32px;
+    }
+
+    .key-components .key-components-title {
+        font-size: 1.7rem;
+    }
+
+    .key-components .key-components-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .key-components .key-component-card {
+        padding: 26px 22px;
+    }
+}
+
+/* Touch devices & Reduced Motion */
+@media (hover: none) {
+    .key-components .key-component-card:hover {
+        transform: none;
+        border-color: var(--border, #4B4B4B);
+        background-color: var(--surface, #242322);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .key-components .key-component-card,
+    .key-components .component-number {
+        transition: none !important;
+        transform: none !important;
+    }
+}
