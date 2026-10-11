@@ -130,8 +130,24 @@
 }
 
 /* ==========================================================================
-   Stacked Sliding Cards (Students)
+   Stacked Sliding Cards Grids
    ========================================================================== */
+.team-grid-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 16px;
+    flex-wrap: wrap;
+}
+
+.team-grid-2 .stacked-card-wrapper {
+    width: 100%;
+    max-width: 270px; /* Matches exact size of 4-column cards */
+}
+
 .team-grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -269,14 +285,16 @@
 
 .member-name {
     font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
+    font-size: clamp(0.78rem, 1vw, 0.88rem);
     font-weight: 700;
     color: #ffffff;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.15px;
     margin: 0;
     text-align: center;
-    padding: 0;
+    padding: 0 4px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ==========================================================================
