@@ -1,0 +1,387 @@
+/* ==========================================================================
+   About Our Research Section Styles
+   Dedicated stylesheet for #research-overview benefit cards & animations
+   ========================================================================== */
+
+/* Anchor scroll offset */
+.section-anchor,
+#about {
+    scroll-margin-top: 80px;
+}
+
+/* Section container */
+.research-overview-section {
+    padding: 88px 6%;
+    background-color: var(--background, #181716);
+}
+
+.research-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Header typography */
+.research-overview-section .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 52px auto;
+}
+
+.research-overview-section .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text, #E2E2E1);
+    margin: 0 0 14px 0;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.research-overview-section .section-description {
+    font-size: 1.05rem;
+    color: var(--text-muted, #9B9B9A);
+    margin: 0;
+    line-height: 1.65;
+}
+
+/* Responsive 4-card grid */
+.research-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* ==========================================================================
+   Research Benefit Card
+   Clean, premium dark card with professional physical elevation & border hover
+   ========================================================================== */
+.research-card {
+    position: relative;
+    background-color: var(--surface, #242322);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 32px 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    height: 100%;
+    cursor: default;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 320ms ease;
+    will-change: transform, box-shadow;
+}
+
+/* ==========================================================================
+   Professional Card Hover Animation
+   Subtle elevation, surface illumination, and refined border accent
+   ========================================================================== */
+.research-card:hover {
+    transform: translateY(-6px);
+    background-color: #292826;
+    border-color: rgba(238, 89, 50, 0.42);
+    box-shadow: 0 20px 38px -10px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(238, 89, 50, 0.18);
+}
+
+/* Stationary card content: always crisp */
+.research-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   Icon Badge — Rounded Squircle with Red Ambient Glow
+   Crafted to match the reference design: vibrant gradient & soft colored halo
+   ========================================================================== */
+.card-icon-wrapper {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #FF4B2B 0%, #EE3A25 60%, #D82613 100%);
+    box-shadow: 0 8px 22px -2px rgba(238, 58, 37, 0.48),
+        0 2px 6px rgba(0, 0, 0, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin-bottom: 22px;
+    flex-shrink: 0;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-icon {
+    width: 26px;
+    height: 26px;
+    stroke: #FFFFFF;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Icon micro-interaction on card hover */
+.research-card:hover .card-icon-wrapper {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 28px -2px rgba(238, 58, 37, 0.68),
+        0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.research-card:hover .card-icon {
+    transform: scale(1.04);
+}
+
+/* ==========================================================================
+   Card Content: Typography
+   High contrast, modern bold title with readable muted description
+   ========================================================================== */
+.card-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 12px 0;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    transition: color 300ms ease;
+}
+
+.card-description {
+    font-size: 0.94rem;
+    color: var(--text-muted, #9B9B9A);
+    line-height: 1.62;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints: Tablet (2 cards / row) & Mobile (1 card / row)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .research-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .research-overview-section .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .research-overview-section {
+        padding: 60px 5%;
+    }
+
+    .research-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .research-card {
+        padding: 28px 22px;
+    }
+
+    .research-overview-section .section-header {
+        margin-bottom: 36px;
+    }
+
+    .research-overview-section .section-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* ==========================================================================
+   Touch Devices & Accessibility
+   ========================================================================== */
+/* Touch devices: smooth interaction without sticky hover artifacts */
+@media (hover: none) {
+    .research-card:hover {
+        transform: none;
+        background-color: var(--surface, #242322);
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .research-card:hover .card-icon-wrapper {
+        transform: none;
+        box-shadow: 0 8px 22px -2px rgba(238, 58, 37, 0.48),
+            0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .research-card:hover .card-icon {
+        transform: none;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .research-card,
+    .card-icon-wrapper,
+    .card-icon {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* ==========================================================================
+   Key Components Section Styles (2x2 AI Agent Cards)
+   Scoped strictly under .key-components
+   ========================================================================== */
+.key-components {
+    margin-top: 84px;
+    padding-top: 56px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.key-components .key-components-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 48px auto;
+}
+
+.key-components .key-components-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--text, #E2E2E1);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.key-components .key-components-description {
+    font-size: 1.05rem;
+    color: var(--text-muted, #9B9B9A);
+    margin: 0;
+    line-height: 1.65;
+}
+
+/* 2x2 Grid Layout for Desktop & Tablet */
+.key-components .key-components-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* Technical Component Card */
+.key-components .key-component-card {
+    position: relative;
+    background-color: var(--surface, #242322);
+    border: 1px solid var(--border, #4B4B4B);
+    border-radius: 16px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    height: 100%;
+    cursor: default;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 300ms ease,
+        border-color 300ms ease,
+        box-shadow 300ms ease,
+        background-color 300ms ease;
+}
+
+/* Subtle, Soft Hover Interaction */
+.key-components .key-component-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(238, 89, 50, 0.45);
+    background-color: var(--surface-elevated, #302E2C);
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.45);
+}
+
+/* Orange Component Number Indicator (01, 02, 03, 04) */
+.key-components .component-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent, #EE5932);
+    background: rgba(238, 89, 50, 0.1);
+    border: 1px solid rgba(238, 89, 50, 0.25);
+    border-radius: 6px;
+    padding: 4px 10px;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    line-height: 1;
+    transition: border-color 300ms ease, background-color 300ms ease;
+}
+
+.key-components .key-component-card:hover .component-number {
+    border-color: rgba(238, 89, 50, 0.45);
+    background: rgba(238, 89, 50, 0.16);
+}
+
+/* Component Card Typography */
+.key-components .component-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text, #E2E2E1);
+    margin: 0 0 12px 0;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+.key-components .component-description {
+    font-size: 0.95rem;
+    color: var(--text-muted, #9B9B9A);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Responsive: Tablet adjustments */
+@media (max-width: 1024px) {
+    .key-components .key-components-grid {
+        gap: 20px;
+    }
+
+    .key-components .key-components-title {
+        font-size: 1.9rem;
+    }
+}
+
+/* Responsive: Mobile layout (1 card per row) */
+@media (max-width: 768px) {
+    .key-components {
+        margin-top: 60px;
+        padding-top: 40px;
+    }
+
+    .key-components .key-components-header {
+        margin-bottom: 32px;
+    }
+
+    .key-components .key-components-title {
+        font-size: 1.7rem;
+    }
+
+    .key-components .key-components-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .key-components .key-component-card {
+        padding: 26px 22px;
+    }
+}
+
+/* Touch devices & Reduced Motion */
+@media (hover: none) {
+    .key-components .key-component-card:hover {
+        transform: none;
+        border-color: var(--border, #4B4B4B);
+        background-color: var(--surface, #242322);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .key-components .key-component-card,
+    .key-components .component-number {
+        transition: none !important;
+        transform: none !important;
+    }
+}
