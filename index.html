@@ -95,6 +95,28 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Research Context buttons tab switcher
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.context-btn');
+            if (btn) {
+                const row = btn.closest('.context-buttons-row');
+                if (row) {
+                    row.querySelectorAll('.context-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const targetId = btn.getAttribute('data-target');
+                    if (targetId) {
+                        const panes = document.querySelectorAll('.context-pane');
+                        panes.forEach(pane => pane.classList.remove('active'));
+                        const targetPane = document.getElementById(targetId);
+                        if (targetPane) {
+                            targetPane.classList.add('active');
+                        }
+                    }
+                }
+            }
+        });
     </script>
 
 </body>
