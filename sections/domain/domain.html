@@ -79,6 +79,202 @@
                 </div>
             </div>
         </div>
+
+        <!-- Research Context Section -->
+        <div class="domain-context-section">
+            <div class="context-heading-wrap problems-heading-wrap">
+                <h3 class="context-title problems-title">Research <span class="highlight">Context</span></h3>
+            </div>
+
+            <!-- Horizontal Action Buttons -->
+            <div class="context-buttons-row">
+                <button type="button" class="context-btn active" data-target="context-literature">LITERATURE SURVEY</button>
+                <button type="button" class="context-btn" data-target="context-problem">RESEARCH PROBLEM</button>
+                <button type="button" class="context-btn" data-target="context-gap">RESEARCH GAP</button>
+                <button type="button" class="context-btn" data-target="context-objectives">RESEARCH OBJECTIVE</button>
+                <button type="button" class="context-btn" data-target="context-methodology">METHODOLOGY</button>
+                <button type="button" class="context-btn" data-target="context-references">REFERENCES</button>
+            </div>
+
+            <!-- Centered Context Display Card -->
+            <div class="context-card-container">
+                <div class="context-card">
+                    <!-- Tab 1: Literature Survey -->
+                    <div id="context-literature" class="context-pane active">
+                        <div class="pane-header">
+                            <span class="pane-tag">Overview</span>
+                            <h4 class="pane-title">Literature Survey</h4>
+                        </div>
+                        <div class="pane-body">
+                            <p class="context-p">
+                                Recent research has explored the application of Natural Language Processing (NLP) and Large Language Models (LLMs) to automate activities within software requirements engineering. Umar and Lano (2024) reviewed automated support for requirements engineering, while Hou et al. (2024) investigated the broader applications of LLMs in software engineering. These studies highlight the potential of AI to support requirements elicitation, classification, specification generation, and analysis, reducing the manual effort involved in processing unstructured stakeholder information. However, challenges related to ambiguity, hallucinated content, reliability, and consistency remain significant, indicating that AI-generated requirements require systematic validation rather than relying solely on LLM outputs.
+                            </p>
+                            <p class="context-p">
+                                Beyond requirements engineering, LLM-based approaches are increasingly being investigated for software architecture modelling, detailed design, and UI generation. However, integrating these activities into a unified workflow presents challenges in maintaining consistency and traceability between requirements and downstream software artefacts. This creates an opportunity for an integrated approach that transforms stakeholder conversations into structured and validated requirements, which then support high-level design (HLD), low-level design (LLD), and UI prototyping. The proposed research addresses this opportunity by coordinating these stages through structured outputs and rule-based validation to identify ambiguities, missing information, and inconsistencies before they propagate into subsequent development phases. Its contribution lies in investigating an end-to-end workflow that connects these early software engineering activities while reducing manual effort and improving artefact consistency.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Research Problem -->
+                    <div id="context-problem" class="context-pane">
+                        <div class="pane-header">
+                            <span class="pane-tag">Core Challenge</span>
+                            <h4 class="pane-title">Research Problem</h4>
+                        </div>
+                        <div class="pane-body">
+                            <p class="context-p">
+                                Traditional software development relies on separate processes and tools for requirements engineering, high-level design (HLD), low-level design (LLD), and UI prototyping. This fragmented approach creates difficulties in maintaining consistency and traceability across development phases, while manually analysing stakeholder conversations and documents can result in ambiguous, incomplete, or conflicting software requirements. These issues can lead to misunderstandings between stakeholders and developers, repeated revisions, increased development time, and design decisions based on inaccurate or insufficient information.
+                            </p>
+                            <p class="context-p">
+                                Although Large Language Models (LLMs) offer opportunities to automate individual software engineering tasks, generating reliable and consistent artefacts across multiple development phases remains challenging. Requirements extracted from unstructured conversations may contain ambiguities or unsupported assumptions, which can propagate into architectural designs, detailed designs, and UI prototypes if not systematically identified and resolved. Therefore, the research problem is the lack of a sufficiently integrated and validated workflow that transforms raw stakeholder information into structured software requirements and coordinates the generation of consistent HLD, LLD, and UI prototypes while reducing manual effort and maintaining the reliability of the generated artefacts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Research Gap -->
+                    <div id="context-gap" class="context-pane">
+                        <div class="pane-header">
+                            <span class="pane-tag">Identified Void</span>
+                            <h4 class="pane-title">Research Gap</h4>
+                        </div>
+                        <div class="pane-body">
+                            <p class="context-p">
+                                Existing research has investigated the use of Large Language Models (LLMs) to automate individual software engineering activities, including requirements extraction, software architecture generation, detailed design, and user interface development. However, these activities are often investigated independently, creating challenges in maintaining consistency and traceability between requirements and downstream design artefacts. In particular, unstructured stakeholder conversations and documents can contain ambiguous, incomplete, or contradictory information that may propagate into architectural decisions, detailed design models, and UI prototypes. Although AI-based approaches can accelerate artefact generation, their outputs may contain unsupported assumptions, structural errors, or inconsistencies that require systematic validation.
+                            </p>
+                            <p class="context-p">
+                                This research addresses the need for an integrated software engineering workflow that connects four components: Requirements Intelligence, High-Level Design (HLD), Low-Level Design (LLD), and UI Prototyping. The proposed workflow aims to transform stakeholder information into structured requirements, generate architecture and detailed design artefacts, and produce UI prototypes while applying appropriate validation and evaluation mechanisms at each stage. The research focuses on improving coordination between these components, identifying errors before they propagate to subsequent stages, and evaluating the resulting artefacts in terms of quality, consistency, traceability, and development effort.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: Research Objectives -->
+                    <div id="context-objectives" class="context-pane">
+                        <div class="pane-header">
+                            <span class="pane-tag">Goals & Targets</span>
+                            <h4 class="pane-title">Research Objectives</h4>
+                        </div>
+                        <div class="pane-body">
+                            <div class="objectives-main-box">
+                                <span class="objectives-badge">Main Objective</span>
+                                <p class="objectives-main-text">
+                                    To design, implement, and evaluate an integrated LLM-based workflow that transforms stakeholder conversations and documents into validated software requirements, high-level architecture, low-level design artefacts, and UI prototypes.
+                                </p>
+                            </div>
+
+                            <div class="specific-objectives-wrap">
+                                <h5 class="specific-title">Specific Objectives</h5>
+                                <div class="objectives-list">
+                                    <div class="objective-item">
+                                        <div class="objective-num">01</div>
+                                        <div class="objective-info">
+                                            <strong>Requirements Intelligence (Agent 1):</strong>
+                                            <span>Develop a workflow to extract functional and non-functional requirements, user stories, and use cases from stakeholder conversations and documents, incorporating validation mechanisms to identify ambiguity, missing information, unsupported requirements, and inconsistencies.</span>
+                                        </div>
+                                    </div>
+                                    <div class="objective-item">
+                                        <div class="objective-num">02</div>
+                                        <div class="objective-info">
+                                            <strong>High-Level Design (Agent 2):</strong>
+                                            <span>Develop a component that generates and evaluates architectural design candidates based on validated requirements, including system components, responsibilities, relationships, and architectural decisions.</span>
+                                        </div>
+                                    </div>
+                                    <div class="objective-item">
+                                        <div class="objective-num">03</div>
+                                        <div class="objective-info">
+                                            <strong>Low-Level Design (Agent 3):</strong>
+                                            <span>Develop a component that transforms requirements and architectural outputs into detailed design artefacts, including UML class diagrams and entity-relationship diagrams, with appropriate structural and semantic validation.</span>
+                                        </div>
+                                    </div>
+                                    <div class="objective-item">
+                                        <div class="objective-num">04</div>
+                                        <div class="objective-info">
+                                            <strong>UI Prototyping (Agent 4):</strong>
+                                            <span>Develop a component that generates UI prototypes from software requirements and design artefacts and evaluates them against usability and accessibility criteria.</span>
+                                        </div>
+                                    </div>
+                                    <div class="objective-item">
+                                        <div class="objective-num">05</div>
+                                        <div class="objective-info">
+                                            <strong>Integration and Evaluation:</strong>
+                                            <span>Integrate the four components through an orchestrated workflow and evaluate the quality, consistency, traceability, processing time, and manual effort associated with the generated artefacts.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5: Research Methodology -->
+                    <div id="context-methodology" class="context-pane">
+                        <div class="pane-header">
+                            <span class="pane-tag">Scientific Framework</span>
+                            <h4 class="pane-title">Research Methodology</h4>
+                        </div>
+                        <div class="pane-body">
+                            <p class="context-p">
+                                The research adopts a Design Science Research (DSR) approach to design, implement, and evaluate an integrated AI-based software engineering workflow. The proposed system consists of four specialized components coordinated through an orchestrator, with structured data interfaces enabling information and artefacts to be transferred between stages. The methodology begins with collecting stakeholder meeting recordings, transcripts, and project documents as input sources. Audio inputs are transcribed and processed to extract relevant information for requirements analysis. Agent 1 generates structured functional and non-functional requirements, user stories, and use cases, supported by rule-based validation to identify ambiguity, missing information, unsupported requirements, and inconsistencies. Where necessary, unresolved issues are addressed through targeted clarification and requirements refinement.
+                            </p>
+                            <p class="context-p">
+                                Following requirements validation, Agent 2 generates high-level architectural designs based on the identified requirements, including architectural components, responsibilities, relationships, and design decisions. Agent 3 uses the requirements and architectural outputs to generate low-level design artefacts, such as UML class diagrams and entity-relationship diagrams, and applies structural and semantic checks. Agent 4 generates UI prototypes based on the available requirements and design information, followed by usability and accessibility evaluation. The orchestrator coordinates execution and manages the transfer of structured outputs between components, while the generated artefacts can be assembled into supporting software requirements documentation. Evaluation uses representative project scenarios and appropriate reference outputs or expert assessments. Requirements are assessed for completeness, correctness, and traceability; HLD and LLD artefacts for structural correctness and consistency; and UI prototypes for usability and accessibility. Overall performance is assessed using artefact quality, cross-stage consistency, processing time, and manual effort, with results reported separately for each component and the integrated workflow.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 6: References -->
+                    <div id="context-references" class="context-pane">
+                        <div class="pane-header">
+                            <span class="pane-tag">Academic Citations</span>
+                            <h4 class="pane-title">References</h4>
+                        </div>
+                        <div class="pane-body">
+                            <p class="references-note">
+                                The following ten references cover the research foundations, four technical components, validation, modelling, and evaluation. They are suitable starting points for the literature review; verify each source's bibliographic details and relevance before including it in the final paper.
+                            </p>
+                            <ol class="references-list">
+                                <li class="ref-item">
+                                    <span class="ref-text">Hou, X., Zhao, Y., Liu, Y., Yang, Z., Wang, K., Li, L., Luo, X., Lo, D., Grundy, J., & Wang, H. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. <em>ACM Transactions on Software Engineering and Methodology</em>, 33(8), Article 220.</span>
+                                    <a href="https://doi.org/10.1145/3695988" target="_blank" rel="noopener noreferrer" class="ref-link">https://doi.org/10.1145/3695988</a>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">ISO/IEC/IEEE. (2018). ISO/IEC/IEEE 29148:2018 — Systems and software engineering: Life cycle processes — Requirements engineering. International Organization for Standardization.</span>
+                                    <a href="https://www.iso.org/standard/72089.html" target="_blank" rel="noopener noreferrer" class="ref-link">Official standard</a>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">Zave, P., & Jackson, M. (1997). Four dark corners of requirements engineering. <em>ACM Transactions on Software Engineering and Methodology</em>, 6(1), 1–30.</span>
+                                    <a href="https://doi.org/10.1145/237432.237434" target="_blank" rel="noopener noreferrer" class="ref-link">https://doi.org/10.1145/237432.237434</a>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">Bass, L., Clements, P., & Kazman, R. (2021). <em>Software Architecture in Practice</em> (4th ed.). Addison-Wesley Professional.</span>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">Object Management Group. (2017). OMG Unified Modeling Language (OMG UML), Version 2.5.1.</span>
+                                    <a href="https://www.omg.org/spec/UML/2.5.1" target="_blank" rel="noopener noreferrer" class="ref-link">https://www.omg.org/spec/UML/2.5.1</a>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">Cohn, M. (2004). <em>User Stories Applied: For Agile Software Development</em>. Addison-Wesley Professional.</span>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">Nielsen, J. (1994). Enhancing the explanatory power of usability heuristics. In <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> (pp. 152–158). ACM.</span>
+                                    <a href="https://doi.org/10.1145/191666.191729" target="_blank" rel="noopener noreferrer" class="ref-link">https://doi.org/10.1145/191666.191729</a>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">World Wide Web Consortium (W3C). (2023). Web Content Accessibility Guidelines (WCAG) 2.2.</span>
+                                    <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener noreferrer" class="ref-link">https://www.w3.org/TR/WCAG22/</a>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">Hevner, A. R., March, S. T., Park, J., & Ram, S. (2004). Design science in information systems research. <em>MIS Quarterly</em>, 28(1), 75–105.</span>
+                                    <a href="https://doi.org/10.2307/25148625" target="_blank" rel="noopener noreferrer" class="ref-link">https://doi.org/10.2307/25148625</a>
+                                </li>
+                                <li class="ref-item">
+                                    <span class="ref-text">Peffers, K., Tuunanen, T., Rothenberger, M. A., & Chatterjee, S. (2007). A design science research methodology for information systems research. <em>Journal of Management Information Systems</em>, 24(3), 45–77.</span>
+                                    <a href="https://doi.org/10.2753/MIS0742-1222240302" target="_blank" rel="noopener noreferrer" class="ref-link">https://doi.org/10.2753/MIS0742-1222240302</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
    
 </section>
