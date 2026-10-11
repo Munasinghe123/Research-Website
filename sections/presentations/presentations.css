@@ -1,0 +1,333 @@
+/* ==========================================================================
+   Presentations Section Styles
+   Adapted to the SysDesign Cyan Design System & Responsive 2x2 Grid
+   ========================================================================== */
+
+#presentations,
+.presentations-section {
+    scroll-margin-top: 80px;
+    padding: 100px var(--page-px, 5%);
+    background-color: var(--background, #000000);
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Subtle Ambient Cyan Glow in Section Background */
+.presentations-section::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 720px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(6, 182, 212, 0.12) 0%,
+        rgba(8, 145, 178, 0.04) 50%,
+        transparent 75%
+    );
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.presentations-container {
+    max-width: 1040px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Section Header Typography */
+.presentations-section .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 46px auto;
+}
+
+.presentations-section .section-title {
+    font-family: var(--font-heading, 'Audiowide', cursive, sans-serif);
+    font-size: clamp(1.7rem, 2.3vw, 2.2rem);
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    letter-spacing: 1.2px;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.presentations-section .section-title .highlight {
+    color: var(--primary, #06B6D4);
+}
+
+.presentations-section .section-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted, #9B9B9A);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Presentations Grid (2x2 Layout on Desktop)
+   ========================================================================== */
+.presentations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    align-items: stretch;
+}
+
+/* ==========================================================================
+   Presentation Card
+   Sleek compact dark card with 16:9 holographic banner & action buttons
+   ========================================================================== */
+.presentation-card {
+    position: relative;
+    background-color: #0c0d10;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px 16px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: default;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 320ms ease;
+    will-change: transform, box-shadow;
+    overflow: hidden;
+}
+
+.presentation-card:hover {
+    transform: translateY(-5px);
+    background-color: #121418;
+    border-color: rgba(6, 182, 212, 0.45);
+    box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(6, 182, 212, 0.22),
+        0 0 22px rgba(6, 182, 212, 0.14);
+}
+
+/* 16:9 Banner Image Wrapper */
+.presentation-banner-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    background: #000000;
+    margin-bottom: 16px;
+}
+
+.presentation-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.presentation-card:hover .presentation-banner {
+    transform: scale(1.04);
+}
+
+/* Banner Corner Pill Badge */
+.banner-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: rgba(12, 13, 16, 0.82);
+    border: 1px solid rgba(6, 182, 212, 0.45);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
+}
+
+/* Card Content & Typography */
+.presentation-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 4px 4px 4px;
+}
+
+.presentation-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.015em;
+    line-height: 1.35;
+    transition: color 0.3s ease;
+}
+
+.presentation-card:hover .presentation-title {
+    color: #ffffff;
+}
+
+.presentation-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted, #9B9B9A);
+    line-height: 1.55;
+    margin: 0 0 18px 0;
+    flex-grow: 1;
+}
+
+/* Action Buttons (View & Download) */
+.presentation-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.pres-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease,
+        box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.pres-btn .btn-icon {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+    transition: transform 0.25s ease;
+}
+
+/* View Button */
+.pres-btn.btn-view {
+    background: var(--primary, #06B6D4);
+    color: #041217;
+    border: 1px solid #22d3ee;
+    box-shadow: 0 0 14px rgba(6, 182, 212, 0.4);
+}
+
+.pres-btn.btn-view:hover {
+    background: #22d3ee;
+    box-shadow: 0 0 24px rgba(6, 182, 212, 0.7);
+    transform: translateY(-2px);
+}
+
+.pres-btn.btn-view:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Download Button */
+.pres-btn.btn-download {
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    color: var(--primary, #06B6D4);
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.1);
+}
+
+.pres-btn.btn-download:hover {
+    background: rgba(6, 182, 212, 0.2);
+    border-color: #22d3ee;
+    color: #ffffff;
+    box-shadow: 0 0 18px rgba(6, 182, 212, 0.45);
+    transform: translateY(-2px);
+}
+
+.pres-btn.btn-download:hover .btn-icon {
+    transform: translateY(1px);
+}
+
+.pres-btn.btn-download:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 960px) {
+    .presentations-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .presentation-card {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    #presentations,
+    .presentations-section {
+        padding: 60px var(--page-px, 5%);
+    }
+
+    .presentations-section .section-header {
+        margin-bottom: 30px;
+    }
+
+    .presentation-banner-wrap {
+        max-height: 180px;
+    }
+
+    .presentation-actions {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .pres-btn {
+        flex: 1 1 calc(50% - 4px);
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ==========================================================================
+   Touch Devices & Accessibility
+   ========================================================================== */
+@media (hover: none) {
+    .presentation-card:hover {
+        transform: none;
+        background-color: #0c0d10;
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .presentation-card:hover .presentation-banner {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .presentation-card,
+    .presentation-banner,
+    .pres-btn,
+    .pres-btn .btn-icon {
+        transition: none !important;
+        transform: none !important;
+    }
+}

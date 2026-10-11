@@ -1,0 +1,364 @@
+/* ==========================================================================
+   Documents Section Styles
+   Adapted to the SysDesign Cyan Design System & Responsive Modular Grid
+   ========================================================================== */
+
+#documents,
+.documents-section {
+    scroll-margin-top: 80px;
+    padding: 100px var(--page-px, 5%);
+    background-color: var(--background, #000000);
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Subtle Ambient Cyan Glow in Section Background */
+.documents-section::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(6, 182, 212, 0.12) 0%,
+        rgba(8, 145, 178, 0.04) 50%,
+        transparent 75%
+    );
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.documents-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Section Header Typography */
+.documents-section .section-header {
+    text-align: center;
+    max-width: 740px;
+    margin: 0 auto 56px auto;
+}
+
+.documents-section .section-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.12);
+    backdrop-filter: blur(8px);
+    margin-bottom: 18px;
+}
+
+.documents-section .section-pill .pill-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: var(--primary, #06B6D4);
+    text-transform: uppercase;
+}
+
+.documents-section .section-title {
+    font-family: var(--font-heading, 'Audiowide', cursive, sans-serif);
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    letter-spacing: 1.2px;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.documents-section .section-title .highlight {
+    color: var(--primary, #06B6D4);
+}
+
+.documents-section .section-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: var(--text-muted, #9B9B9A);
+    margin: 0;
+    line-height: 1.65;
+}
+
+/* ==========================================================================
+   Documents Grid (3-column layout on Desktop)
+   ========================================================================== */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* ==========================================================================
+   Document Card
+   Centered composition with dark surface, glowing cyan squircle, & hover lift
+   ========================================================================== */
+.document-card {
+    position: relative;
+    background-color: #0c0d10;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 34px 26px 28px 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    cursor: default;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 320ms ease;
+    will-change: transform, box-shadow;
+}
+
+/* Card Hover Animation */
+.document-card:hover {
+    transform: translateY(-6px);
+    background-color: #121418;
+    border-color: rgba(6, 182, 212, 0.45);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(6, 182, 212, 0.22),
+        0 0 24px rgba(6, 182, 212, 0.12);
+}
+
+/* Document Icon Badge */
+.doc-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #22D3EE 0%, #06B6D4 60%, #0891B2 100%);
+    box-shadow: 0 8px 24px -2px rgba(6, 182, 212, 0.48),
+        0 2px 6px rgba(0, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin-bottom: 22px;
+    flex-shrink: 0;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.doc-icon {
+    width: 26px;
+    height: 26px;
+    stroke: #FFFFFF;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Document Image Support (PNG / WebP / SVG image files) */
+.doc-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Full Illustration Style (framed 3D artwork with glowing cyan border) */
+.doc-icon-wrapper.has-illustration {
+    background: #000000;
+    width: 76px;
+    height: 76px;
+    border-radius: 16px;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    box-shadow: 0 8px 22px -4px rgba(6, 182, 212, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 22px;
+}
+
+.doc-icon-wrapper.has-illustration .doc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: brightness(1.05) contrast(1.05);
+}
+
+.document-card:hover .doc-icon-wrapper {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 28px -2px rgba(6, 182, 212, 0.7),
+        0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.document-card:hover .doc-icon-wrapper.has-illustration {
+    transform: translateY(-3px) scale(1.06);
+    border-color: rgba(6, 182, 212, 0.65);
+    box-shadow: 0 14px 30px -4px rgba(6, 182, 212, 0.55),
+        0 0 20px rgba(6, 182, 212, 0.25);
+}
+
+.document-card:hover .doc-icon-wrapper.has-illustration .doc-img {
+    transform: scale(1.04);
+}
+
+.document-card:hover .doc-icon {
+    transform: scale(1.04);
+}
+
+.document-card:hover .doc-icon-wrapper:not(.has-illustration) .doc-img {
+    transform: scale(1.06);
+}
+
+/* Card Body & Typography */
+.doc-card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.doc-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 10px 0;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    transition: color 300ms ease;
+}
+
+.doc-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.93rem;
+    color: var(--text-muted, #9B9B9A);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Card Footer & Download Button */
+.doc-card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.doc-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    color: var(--primary, #06B6D4);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.1);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease,
+        box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.doc-download-btn .download-icon {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.25s ease;
+}
+
+.doc-download-btn:hover {
+    background: var(--primary, #06B6D4);
+    color: #041217;
+    border-color: #22d3ee;
+    box-shadow: 0 0 22px rgba(6, 182, 212, 0.6);
+    transform: translateY(-2px);
+}
+
+.doc-download-btn:hover .download-icon {
+    transform: translateY(1px);
+}
+
+.doc-download-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints: Tablet (2 columns) & Mobile (1 column)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .documents-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 680px) {
+    #documents,
+    .documents-section {
+        padding: 70px var(--page-px, 5%);
+    }
+
+    .documents-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .document-card {
+        padding: 28px 22px 24px 22px;
+    }
+
+    .documents-section .section-header {
+        margin-bottom: 36px;
+    }
+}
+
+/* ==========================================================================
+   Touch Devices & Accessibility
+   ========================================================================== */
+@media (hover: none) {
+    .document-card:hover {
+        transform: none;
+        background-color: #0c0d10;
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .document-card:hover .doc-icon-wrapper {
+        transform: none;
+        box-shadow: 0 8px 24px -2px rgba(6, 182, 212, 0.48),
+            0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .document-card:hover .doc-icon {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .document-card,
+    .doc-icon-wrapper,
+    .doc-icon,
+    .doc-download-btn,
+    .doc-download-btn .download-icon {
+        transition: none !important;
+        transform: none !important;
+    }
+}
