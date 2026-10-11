@@ -1,4 +1,412 @@
-/* About section styling */
-#about {
-    /* Custom styles for about section */
+/* ==========================================================================
+   About Our Research Section Styles
+   Adapted to the SysDesign Cyan Design System & Modular Section Architecture
+   ========================================================================== */
+
+#about,
+.research-overview-section {
+    scroll-margin-top: 80px;
+    padding: 100px var(--page-px, 5%);
+    background-color: var(--background, #000000);
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Subtle Ambient Cyan Lighting in background */
+.research-overview-section::before {
+    content: "";
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 680px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(6, 182, 212, 0.14) 0%,
+        rgba(8, 145, 178, 0.05) 50%,
+        transparent 75%
+    );
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.research-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Eyebrow Pill Badge */
+.section-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.12);
+    backdrop-filter: blur(8px);
+    margin-bottom: 18px;
+}
+
+.section-pill .pill-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: var(--primary, #06B6D4);
+    text-transform: uppercase;
+}
+
+/* Section Header Typography */
+.research-overview-section .section-header {
+    text-align: center;
+    max-width: 740px;
+    margin: 0 auto 56px auto;
+}
+
+.research-overview-section .section-title {
+    font-family: var(--font-heading, 'Audiowide', cursive, sans-serif);
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    letter-spacing: 1.2px;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.research-overview-section .section-title .highlight {
+    color: var(--primary, #06B6D4);
+}
+
+.research-overview-section .section-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: var(--text-muted, #9B9B9A);
+    margin: 0;
+    line-height: 1.65;
+}
+
+/* 4-Card Benefit Grid (Desktop: 4 columns) */
+.research-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* ==========================================================================
+   Benefit Cards
+   Deep black surface with subtle border and crisp cyan elevation on hover
+   ========================================================================== */
+.research-card {
+    position: relative;
+    background-color: #0c0d10;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 32px 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    height: 100%;
+    cursor: default;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 320ms ease;
+    will-change: transform, box-shadow;
+}
+
+/* Professional Hover Effect */
+.research-card:hover {
+    transform: translateY(-6px);
+    background-color: #121418;
+    border-color: rgba(6, 182, 212, 0.45);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(6, 182, 212, 0.22),
+        0 0 24px rgba(6, 182, 212, 0.12);
+}
+
+.research-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   Icon Badge — Rounded Squircle with Cyan Gradient & Glow
+   Matching reference design layout with new SysDesign Cyan palette
+   ========================================================================== */
+.card-icon-wrapper {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #22D3EE 0%, #06B6D4 60%, #0891B2 100%);
+    box-shadow: 0 8px 24px -2px rgba(6, 182, 212, 0.48),
+        0 2px 6px rgba(0, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin-bottom: 22px;
+    flex-shrink: 0;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-icon {
+    width: 26px;
+    height: 26px;
+    stroke: #FFFFFF;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Icon micro-interaction on hover */
+.research-card:hover .card-icon-wrapper {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 28px -2px rgba(6, 182, 212, 0.7),
+        0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.research-card:hover .card-icon {
+    transform: scale(1.04);
+}
+
+/* Benefit Card Typography */
+.card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 12px 0;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    transition: color 300ms ease;
+}
+
+.card-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.94rem;
+    color: var(--text-muted, #9B9B9A);
+    line-height: 1.62;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Key Components Section (2x2 AI Agent Cards)
+   ========================================================================== */
+.key-components {
+    margin-top: 84px;
+    padding-top: 56px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.key-components .key-components-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 48px auto;
+}
+
+.key-components .key-components-title {
+    font-family: var(--font-heading, 'Audiowide', cursive, sans-serif);
+    font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    letter-spacing: 1.2px;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.key-components .key-components-title .highlight {
+    color: var(--primary, #06B6D4);
+}
+
+.key-components .key-components-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: var(--text-muted, #9B9B9A);
+    margin: 0;
+    line-height: 1.65;
+}
+
+/* 2x2 Grid for Key Components */
+.key-components .key-components-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* Technical Component Card */
+.key-components .key-component-card {
+    position: relative;
+    background-color: #0c0d10;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    height: 100%;
+    cursor: default;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 300ms ease,
+        border-color 300ms ease,
+        box-shadow 300ms ease,
+        background-color 300ms ease;
+}
+
+/* Subtle, Soft Hover Interaction */
+.key-components .key-component-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(6, 182, 212, 0.45);
+    background-color: #121418;
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.55),
+        0 0 20px rgba(6, 182, 212, 0.12);
+}
+
+/* Cyan Component Number Indicator (01, 02, 03, 04) */
+.key-components .component-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary, #06B6D4);
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    border-radius: 6px;
+    padding: 4px 10px;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    line-height: 1;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.12);
+    transition: border-color 300ms ease, background-color 300ms ease, box-shadow 300ms ease;
+}
+
+.key-components .key-component-card:hover .component-number {
+    border-color: rgba(6, 182, 212, 0.6);
+    background: rgba(6, 182, 212, 0.18);
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.25);
+}
+
+/* Component Card Typography */
+.key-components .component-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text, #E2E2E1);
+    margin: 0 0 12px 0;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+.key-components .component-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted, #9B9B9A);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .research-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .key-components .key-components-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #about,
+    .research-overview-section {
+        padding: 70px var(--page-px, 5%);
+    }
+
+    .research-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .research-card {
+        padding: 28px 22px;
+    }
+
+    .research-overview-section .section-header {
+        margin-bottom: 36px;
+    }
+
+    .key-components {
+        margin-top: 60px;
+        padding-top: 40px;
+    }
+
+    .key-components .key-components-header {
+        margin-bottom: 32px;
+    }
+
+    .key-components .key-components-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .key-components .key-component-card {
+        padding: 26px 22px;
+    }
+}
+
+/* Touch devices & Reduced Motion */
+@media (hover: none) {
+    .research-card:hover {
+        transform: none;
+        background-color: #0c0d10;
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .research-card:hover .card-icon-wrapper {
+        transform: none;
+        box-shadow: 0 8px 24px -2px rgba(6, 182, 212, 0.48),
+            0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .research-card:hover .card-icon {
+        transform: none;
+    }
+
+    .key-components .key-component-card:hover {
+        transform: none;
+        border-color: rgba(255, 255, 255, 0.08);
+        background-color: #0c0d10;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .research-card,
+    .card-icon-wrapper,
+    .card-icon,
+    .key-components .key-component-card,
+    .key-components .component-number {
+        transition: none !important;
+        transform: none !important;
+    }
 }
