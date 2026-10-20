@@ -86,7 +86,14 @@
                         <div class="form-title-bar"></div>
                     </div>
 
-                    <form class="contact-form" id="contactForm" autocomplete="off" onsubmit="event.preventDefault();">
+                    <form class="contact-form" id="contactForm" autocomplete="off" action="https://formsubmit.co/jsan39196@gmail.com" method="POST">
+                        <!-- Anti-Spam Honeypot field (hidden from legitimate users) -->
+                        <input type="text" name="_honey" style="display:none !important;" tabindex="-1" autocomplete="off">
+                        
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+
                         <!-- Full Name -->
                         <div class="form-group">
                             <label for="fullName" class="form-label">Full Name</label>
@@ -138,6 +145,9 @@
                                 required
                             ></textarea>
                         </div>
+
+                        <!-- Status Message Display (Success / Error / Info) -->
+                        <div id="contactStatusMessage" class="contact-status-message" role="alert" aria-live="polite"></div>
 
                         <!-- Submit Button -->
                         <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">

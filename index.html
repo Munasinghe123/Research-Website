@@ -48,6 +48,7 @@
 
     <script src="sections/marquee/marquee.js"></script>
     <script src="sections/milestones/milestones.js"></script>
+    <script src="sections/contact/contact.js"></script>
     <script>
         async function loadModularSections() {
             const placeholders = document.querySelectorAll('[data-include]');
@@ -73,6 +74,11 @@
             // Initialize interactive milestones timeline once injected
             if (window.initMilestonesTimeline) {
                 window.initMilestonesTimeline();
+            }
+
+            // Initialize contact form handler once injected
+            if (window.initContactForm) {
+                window.initContactForm();
             }
 
             // Handle anchor link scrolling once content is injected
@@ -115,32 +121,6 @@
                         }
                     }
                 }
-            }
-        });
-
-        // Contact Form Interactive Submission Handler
-        document.addEventListener('submit', (e) => {
-            if (e.target && e.target.id === 'contactForm') {
-                e.preventDefault();
-                const form = e.target;
-                const submitBtn = form.querySelector('.contact-submit-btn');
-                if (!submitBtn) return;
-                
-                const originalHtml = submitBtn.innerHTML;
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = `<span>Message Sent!</span> <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-                submitBtn.style.background = 'linear-gradient(135deg, #10B981 0%, #059669 100%)';
-                submitBtn.style.color = '#ffffff';
-                submitBtn.style.boxShadow = '0 0 25px rgba(16, 185, 129, 0.5)';
-
-                setTimeout(() => {
-                    form.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalHtml;
-                    submitBtn.style.background = '';
-                    submitBtn.style.color = '';
-                    submitBtn.style.boxShadow = '';
-                }, 3000);
             }
         });
     </script>

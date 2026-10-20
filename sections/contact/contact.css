@@ -440,6 +440,116 @@
     transform: translateX(4px);
 }
 
+.contact-submit-btn:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ==========================================================================
+   Contact Form Status Alert & Loading Spinner
+   ========================================================================== */
+.contact-status-message {
+    display: none;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    box-sizing: border-box;
+    animation: statusSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.contact-status-message.visible {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contact-status-message.success {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    color: #6ee7b7;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.18);
+}
+
+.contact-status-message.error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.45);
+    color: #fca5a5;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.18);
+}
+
+.contact-status-message.info {
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.45);
+    color: #67e8f9;
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.18);
+}
+
+.contact-status-message.warning {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    color: #fcd34d;
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.18);
+}
+
+.contact-status-message svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.contact-status-message .status-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-status-message .status-action {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+.contact-status-message .status-action:hover {
+    color: var(--primary, #06B6D4);
+}
+
+@keyframes statusSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(4, 18, 26, 0.25);
+    border-top-color: #04121a;
+    border-radius: 50%;
+    animation: contactBtnSpin 0.7s linear infinite;
+    display: inline-block;
+}
+
+@keyframes contactBtnSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
